@@ -41,3 +41,18 @@ o3.name = 'lee'
 var o2 = Object.assign({}, o1)         
 o2.name='lee'            
 o1의 name이 변경되지 않는다             
+              
+               
+
+## 3.4
+ var o1 ={ name:'kim', score: [1, 2]}        
+ 배열도 객체이다.           
+ score는 배열의 위치를 저장하고 있다.         
+          
+
+var o2 = Object.assign({}, o1);         
+o2.score.push(3); //문제 발생 !!!, o1의 score까지 변경된다.       
+
+o2.score=o2.score.concat(); //o2의 score는 o1의 score와 다르다.        
+배열 복제는 concat, slice, arrayfrom를 사용한다.           
+o2.score.push(3) // o2.score=[1, 2, 3]; o1.score=[1, 2];가 된다. 원본에 대해서 불변함을 유지할 수 있게 된다.             
